@@ -1,2 +1,5 @@
 # rock-paper-scissors
-This project is part of The Odin project tutorial. It is the first bigger project of the javascript part in Foundations of The Odin project. The goal is to create a simple game called rock paper scissors using javascript. For the output it is using the console and input is done using prompt().
+This project is part of The Odin project tutorial. It is the first bigger project of the javascript part in the Foundations of The Odin project. The goal is to create a simple game called rock paper scissors using javascript. For the output it is using the console and input is done using prompt().
+
+## Results and self reflection
+I managed to finish the project withou any help and I am quite happy with the final result. But I am not happy with how it went. It took me way too longer than I expected. I couldn't decide what to really do and how to name variables and functions. I made many silly errors that took me the most time to solve. Thanks to them I got more familiar with the debugging tool in firefox and I also found the advantage of keeping the code in smaller bits that are a lot simpler to debug.

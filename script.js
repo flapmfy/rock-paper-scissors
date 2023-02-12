@@ -63,7 +63,7 @@ function game(rounds = 5) {
         let roundWinner = playRound(playerChoice, computerChoice);
 
         //console output
-        console.log("+++++++++++++++++ROUND " + i + " +++++++++++++++++")
+        console.log("+++++++++++++++++ROUND " + i + "+++++++++++++++++")
         console.log("Player: " + playerChoice);
         console.log("Computer: " + computerChoice);
         console.log("Round winner: " + roundWinner);
