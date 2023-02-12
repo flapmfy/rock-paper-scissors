@@ -58,27 +58,38 @@ function game(rounds = 5) {
     let computerScore = 0;
 
     for (let i = 1; i <= rounds; i++) {
-        let roundWinner = playRound(getPlayerChoice(), getComputerChoice());
+        let playerChoice = getPlayerChoice();
+        let computerChoice = getComputerChoice();
+        let roundWinner = playRound(playerChoice, computerChoice);
+
+        //console output
+        console.log("+++++++++++++++++ROUND " + i + " +++++++++++++++++")
+        console.log("Player: " + playerChoice);
+        console.log("Computer: " + computerChoice);
+        console.log("Round winner: " + roundWinner);
 
         if (roundWinner === "player") {
             playerScore++;
-        } else {
+        } else if (roundWinner === "computer") {
             computerScore++;
         }
 
-        console.log("Player: " + playerScore + " X Computer: " + computerScore);
+        console.log(playerScore + " X " + computerScore);
     }
 
 
+    //console output
+    console.log("+++++++++++++++++RESULTS+++++++++++++++++")
+    if (playerScore === computerScore) {
+        console.log("draw");
+    } else if (playerScore > computerScore) {
+        console.log("player won");
+    } else {
+        console.log("computer won");
+    }
 }
 
 
 ////////////////////////////tests
 
-let hrac = getPlayerChoice();
-//let pc = getComputerChoice();
-let pc = "rock";
-
-console.log("Player: " + hrac);
-console.log("Computer: " + pc);
-console.log(playRound(hrac, pc));
+game(5);
