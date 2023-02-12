@@ -2,39 +2,31 @@
 
 function getComputerChoice() {
     let choiceInt = Math.floor(Math.random() * 3);
+    let choiceString = "";
     
-    return choiceInt;
+    if (choiceInt === 0) {
+        choiceString = "rock";
+    } else if (choiceInt === 1) {
+        choiceString = "paper";
+    } else if (choiceInt === 2) {
+        choiceString = "scissors";
+    }
+
+    return choiceString;
 }
 
 function validateChoice(playerChoice) {
-    playerChoice = choiceToNumber(playerChoice);
-
-    while (playerChoice === -1) {
-        playerChoice = choiceToNumber(prompt("Incorrect choice, try paper, rock or scissors.", "Rock"));
-    }
-
-    return playerChoice;
-}
-
-function choiceToNumber(playerChoice) {
     playerChoice = playerChoice.toLowerCase();
 
-    if (playerChoice === "rock") {
-        playerChoice = 0;
-    } else if (playerChoice === "paper") {
-        playerChoice = 1;
-    } else if (playerChoice === "scissors") {
-        playerChoice = 2;
-    } else {
-        playerChoice = -1;
+    while ((playerChoice !== "rock") && (playerChoice !== "paper") && (playerChoice !== "scissors")) {
+        playerChoice = prompt("Incorrect choice, try paper, rock or scissors.", "Rock").toLowerCase();
     }
 
     return playerChoice;
 }
 
 function getPlayerChoice() {
-    let playerChoice = prompt("Rock, paper or scissors?", "Rock");
-    playerChoice = validateChoice(playerChoice);
+    let playerChoice = validateChoice(prompt("Rock, paper or scissors?", "Rock").toLowerCase());
     
     return playerChoice;
 }
@@ -47,19 +39,11 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         roundWinner = "draw";
     } else {
-        if (playerSelection === 0 && computerSelection === 2) {
+        if (playerSelection === "rock" && computerSelection === "scissors") {
             roundWinner = "player";
-        } else {
-            roundWinner = "computer";
-        }
-
-        if (playerSelection === 1 && computerSelection === 0) {
+        } else if (playerSelection === "paper" && computerSelection === "rock") {
             roundWinner = "player";
-        } else {
-            roundWinner = "computer";
-        }
-
-        if (playerSelection === 2 && computerSelection === 1) {
+        } else if (playerSelection === "scissors" && computerSelection === "paper") {
             roundWinner = "player";
         } else {
             roundWinner = "computer";
@@ -67,7 +51,6 @@ function playRound(playerSelection, computerSelection) {
     }
 
     return roundWinner;
-
 }
 
 function game(rounds = 5) {
@@ -75,8 +58,27 @@ function game(rounds = 5) {
     let computerScore = 0;
 
     for (let i = 1; i <= rounds; i++) {
+        let roundWinner = playRound(getPlayerChoice(), getComputerChoice());
 
+        if (roundWinner === "player") {
+            playerScore++;
+        } else {
+            computerScore++;
+        }
+
+        console.log("Player: " + playerScore + " X Computer: " + computerScore);
     }
+
+
 }
 
-console.log(getPlayerChoice());
+
+////////////////////////////tests
+
+let hrac = getPlayerChoice();
+//let pc = getComputerChoice();
+let pc = "rock";
+
+console.log("Player: " + hrac);
+console.log("Computer: " + pc);
+console.log(playRound(hrac, pc));
