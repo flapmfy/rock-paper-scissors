@@ -58,19 +58,24 @@ function game(rounds = 5) {
     let computerScore = 0;
 
     for (let i = 1; i <= rounds; i++) {
-        let playerChoice = getPlayerChoice();
-        let computerChoice = getComputerChoice();
-        let roundWinner = playRound(playerChoice, computerChoice);
 
-        //console output
         console.log("+++++++++++++++++ROUND " + i + "+++++++++++++++++")
-        console.log("Player: " + playerChoice);
-        console.log("Computer: " + computerChoice);
-        console.log("Round winner: " + roundWinner);
+        let roundWinner = "";
+        do {
+            let playerChoice = getPlayerChoice();
+            let computerChoice = getComputerChoice();
+            roundWinner = playRound(playerChoice, computerChoice);
+
+            //console output:
+            console.log("Player: " + playerChoice);
+            console.log("Computer: " + computerChoice);
+            console.log("Round winner: " + roundWinner);
+            console.log("------------------------------------");
+        } while (roundWinner === "draw")
 
         if (roundWinner === "player") {
             playerScore++;
-        } else if (roundWinner === "computer") {
+        } else {
             computerScore++;
         }
 
