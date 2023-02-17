@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto';
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+}
+
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #ff9900;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/****************************************************************************************/
+
+.playing-field {
+    padding: 25px 0px;
+    background-color: rgb(36, 36, 36);
+    gap: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playing-field .flex-container {
+    width: 900px;
+    gap: 20px;
+}
+
+.stats {
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(32, 32, 32);
+    color: aliceblue;
+    border-radius: 10px;
+    flex: 1;
+    padding: 15px;
+}
+
+.versus {
+    align-self: center;
+    font-size: 80px;
+    color: aliceblue;
+}
+
+.emoji {
+    font-size: 250px;
+}
+
+.score {
+    font-size: 70px;
+}
+
+.round-winner, .winner {
+    color: orange;
+    font-size: 35px;
+    font-weight: 400;
+}
+
+/****************************************************************************************/
+.js-reset {
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.control-panel {
+    background-color: rgb(36, 36, 36);
+    flex: 1;
+}
+
+.controls {
+    margin: 15px 0px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.choice {
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #ff9900;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: 300;
+    cursor:pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.choice:hover {
+    background-color: #ff9900c2;
+}
+
+.emoji-control {
+    font-size: 100px;
+}
+
+/****************************************************************************************/
+
+footer {
+    text-align: center;
+    font-weight: 900;
+    padding: 25px;
+    background-color: black;
+    color: rgb(202, 200, 200);
+}

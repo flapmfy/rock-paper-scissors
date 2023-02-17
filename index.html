@@ -5,39 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <h1>Rock, Paper, Scissors!</h1>
-    </header>
+        <header>
+            <h1>Rock, Paper, Scissors!</h1>
+        </header>
 
-    <section class="playing-field">
-        <div class="player">
-            <h2>PLAYER</h2>
-            <div class="choosed-player">
+        <section class="playing-field">
+            <div class="flex-container">
+                <div class="player stats flex-column">
+                    <h2>PLAYER</h2>
+                    <div class="player-emoji emoji">
+                        🤔
+                    </div>
+                    <div class="js-player-score score">0</div>
+                </div>
 
+                <div class="versus">
+                    VS
+                </div>
+
+                <div class="computer stats flex-column">
+                    <h2>COMPUTER</h2>
+                    <div class="computer-emoji emoji">
+                        🤔
+                    </div>
+                    <div class="js-computer-score score">0</div>
+                </div>
             </div>
-        </div>
 
-        <div class="versus">
-            X
-        </div>
+            <div class="results">
+                <div class="round-winner">
+                    <div">ROUND WINNER: <span class="js-round-winner"></span></div>
+                </div>
 
-        <div class="computer">
-            <h2>COMPUTER</h2>
-            <div class="choosed-computer">
-
+                <div class="winner flex-column">
+                    <div">GAME WINNER: <span class="js-winner"></span></div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="controls">
-        <span class="choice">Rock</span>
-        <span class="choice">Paper</span>
-        <span class="choice">Scissors</span>
-    </section>
-    
+        <section class="flex-column control-panel">
+            <div class="controls">
+                <div class="choice flex-column">
+                    <div class="emoji-control" >🪨</div>
+                    <div class="text-choice">Rock</div>
+                </div>
+                <div class="choice flex-column">
+                    <div class="emoji-control">🤚</div>
+                    <div class="text-choice">Paper</div>
+                </div>
+                <div class="choice flex-column">
+                    <div class="emoji-control">✂️</div>
+                    <div class="text-choice">Scissors</div>
+                </div>
+            </div>
+            <button class="js-reset">Reset Game</button>
+        </section>
+
+        <footer>The Odin Project 2023</footer>
 </body>
 </html>
