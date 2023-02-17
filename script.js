@@ -15,23 +15,15 @@ function getComputerChoice() {
     return choiceString;
 }
 
-function validateChoice(playerChoice) {
-    playerChoice = playerChoice.toLowerCase();
+const buttons = document.querySelectorAll(".choice");
+buttons.forEach(button => button.addEventListener('click', getPlayerChoice));
 
-    while ((playerChoice !== "rock") && (playerChoice !== "paper") && (playerChoice !== "scissors")) {
-        playerChoice = prompt("Incorrect choice, try paper, rock or scissors.", "Rock").toLowerCase();
-    }
+function getPlayerChoice(e) {
+    let playerChoice = e.target;
+    console.log(playerChoice);
 
     return playerChoice;
 }
-
-function getPlayerChoice() {
-    let playerChoice = validateChoice(prompt("Rock, paper or scissors?", "Rock").toLowerCase());
-    
-    return playerChoice;
-}
-
-
 
 function playRound(playerSelection, computerSelection) {
     let roundWinner = "";
@@ -53,11 +45,11 @@ function playRound(playerSelection, computerSelection) {
     return roundWinner;
 }
 
-function game(rounds = 5) {
+function game() {
     let playerScore = 0;
     let computerScore = 0;
 
-    for (let i = 1; i <= rounds; i++) {
+    for (let i = 1; i <= 5; i++) {
 
         console.log("+++++++++++++++++ROUND " + i + "+++++++++++++++++")
         let roundWinner = "";
