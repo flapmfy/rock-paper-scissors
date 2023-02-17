@@ -51,18 +51,12 @@ function game() {
 
     for (let i = 1; i <= 5; i++) {
 
-        console.log("+++++++++++++++++ROUND " + i + "+++++++++++++++++")
+
         let roundWinner = "";
         do {
             let playerChoice = getPlayerChoice();
             let computerChoice = getComputerChoice();
             roundWinner = playRound(playerChoice, computerChoice);
-
-            //console output:
-            console.log("Player: " + playerChoice);
-            console.log("Computer: " + computerChoice);
-            console.log("Round winner: " + roundWinner);
-            console.log("------------------------------------");
         } while (roundWinner === "draw")
 
         if (roundWinner === "player") {
@@ -70,19 +64,6 @@ function game() {
         } else {
             computerScore++;
         }
-
-        console.log(playerScore + " X " + computerScore);
-    }
-
-
-    //console output
-    console.log("+++++++++++++++++RESULTS+++++++++++++++++")
-    if (playerScore === computerScore) {
-        console.log("draw");
-    } else if (playerScore > computerScore) {
-        console.log("player won");
-    } else {
-        console.log("computer won");
     }
 }
 
