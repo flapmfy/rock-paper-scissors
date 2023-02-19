@@ -11,7 +11,7 @@ const computerEmoji = document.querySelector(".computer-emoji");
 resetGameButton.addEventListener('click', resetGame);
 
 const buttons = document.querySelectorAll(".choice");
-buttons.forEach((button) => button.addEventListener("click", playRound));
+buttons.forEach((button) => button.addEventListener("click", getPlayerChoice));
 
 let playerScore = 0;
 let computerScore = 0;
@@ -33,14 +33,12 @@ function getComputerChoice() {
 
 function getPlayerChoice(e) {
   let playerChoice = e.currentTarget.lastElementChild.textContent;
-  return playerChoice.toLowerCase();
+  playRound(playerChoice.toLowerCase(), getComputerChoice());
 }
 
-function playRound(e) {
+function playRound(playerSelection, computerSelection) {
   let roundWinner = "";
   let winner = "";
-  let playerSelection = getPlayerChoice(e);
-  let computerSelection = getComputerChoice();
 
   drawChoice(playerSelection, playerEmoji);
   drawChoice(computerSelection, computerEmoji);
@@ -48,15 +46,14 @@ function playRound(e) {
   if (playerScore !== 5 && computerScore !== 5) {
     roundWinner = checkRoundWinner(playerSelection, computerSelection);
     roundWinnerOut.textContent = roundWinner;
-  }
-
-    if (playerScore === 5 || computerScore === 5) {
-    winner = checkGameWinner();
-    gameWinnerOut.textContent = winner;
+  } else if (playerScore === 5) {
+    gameWinnerOut.textContent = "Player";
+    resetGameButton.style.display = "block";
+  } else {
+    gameWinnerOut.textContent = "Computer";
     resetGameButton.style.display = "block";
   }
 }
-
 
 function checkRoundWinner (playerSelection, computerSelection) {
     let roundWinner = "";
@@ -85,11 +82,6 @@ function updateScore(roundWinner) {
 
     playerScoreOut.textContent = playerScore;
     computerScoreOut.textContent = computerScore;
-}
-
-function checkGameWinner() {
-    if (playerScore === 5) return "player";
-    return "computer";
 }
 
 function resetGame() {
