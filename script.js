@@ -16,19 +16,34 @@ buttons.forEach((button) => button.addEventListener("click", getPlayerChoice));
 let playerScore = 0;
 let computerScore = 0;
 
+console.log(getComputerChoice())
 function getComputerChoice() {
   let choiceInt = Math.floor(Math.random() * 3);
-  let choiceString = "";
+  // let choiceString = "";
 
-  if (choiceInt === 0) {
-    choiceString = "rock";
-  } else if (choiceInt === 1) {
-    choiceString = "paper";
-  } else if (choiceInt === 2) {
-    choiceString = "scissors";
+  // if (choiceInt === 0) {
+  //   choiceString = "rock";
+  // } else if (choiceInt === 1) {
+  //   choiceString = "paper";
+  // } else if (choiceInt === 2) {
+  //   choiceString = "scissors";
+  // }
+
+  return choiceInt;
+}
+
+function choiceToNumber(choiceString) {
+  let choiceInt = -1;
+
+  if (choiceString === "rock") {
+    choiceInt = 0;
+  } else if (choiceString === "paper") {
+    choiceint = 1;
+  } else {
+    choiceInt = 2;
   }
 
-  return choiceString;
+  return choiceInt;
 }
 
 function getPlayerChoice(e) {
@@ -97,11 +112,11 @@ function resetGame() {
 }
 
 function drawChoice(choice, where) {
-    if (choice === "rock") {
+    if (choice === 0) {
         where.textContent = "🪨";
-    } else if (choice === "paper") {
+    } else if (choice === 1) {
         where.textContent = "🤚";
-    } else if (choice === "scissors") {
+    } else if (choice === 2) {
         where.textContent = "✂️";
     } else {
         where.textContent = "🤔";
