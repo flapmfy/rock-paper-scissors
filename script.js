@@ -2,7 +2,6 @@
 
 const playerScoreOut = document.querySelector(".js-player-score");
 const computerScoreOut = document.querySelector(".js-computer-score");
-const roundWinnerOut = document.querySelector(".js-round-winner");
 const gameWinnerOut = document.querySelector(".js-winner");
 const resetGameButton = document.querySelector(".js-reset");
 const playerEmoji = document.querySelector(".player-emoji");
@@ -90,7 +89,6 @@ function checkRoundWinner (playerSelection, computerSelection) {
       console.log(roundWinner);
 
       updateScore(roundWinner);
-      roundWinnerOut.textContent = roundWinner;
 }
 
 function updateScore(roundWinner) {
@@ -102,15 +100,7 @@ function updateScore(roundWinner) {
 }
 
 function resetGame() {
-    playerScore = 0;
-    computerScore = 0;
-    playerScoreOut.textContent = 0;
-    computerScoreOut.textContent = 0;
-    roundWinnerOut.textContent = "";
-    gameWinnerOut.textContent = "";
-    resetGameButton.style.display = "none";
-    drawChoice("no", playerEmoji);
-    drawChoice("no", computerEmoji);
+    location.reload();
 }
 
 function drawChoice(choice, where) {
