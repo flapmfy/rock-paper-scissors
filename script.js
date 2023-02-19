@@ -46,11 +46,10 @@ function playRound(playerSelection, computerSelection) {
   let roundWinner = "";
   let winner = "";
 
-  drawChoice(playerSelection, playerEmoji);
-  drawChoice(computerSelection, computerEmoji);
-
   if (playerScore !== 5 && computerScore !== 5) {
     checkRoundWinner(playerSelection, computerSelection);
+    drawChoice(playerSelection, playerEmoji);
+    drawChoice(computerSelection, computerEmoji);
   } 
   
   if (playerScore === 5) {
