@@ -1,7 +1,5 @@
 "use strict";
 
-let playerScore = 0;
-let computerScore = 0;
 const playerScoreOut = document.querySelector(".js-player-score");
 const computerScoreOut = document.querySelector(".js-computer-score");
 const roundWinnerOut = document.querySelector(".js-round-winner");
@@ -14,6 +12,9 @@ resetGameButton.addEventListener('click', resetGame);
 
 const buttons = document.querySelectorAll(".choice");
 buttons.forEach((button) => button.addEventListener("click", playRound));
+
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
   let choiceInt = Math.floor(Math.random() * 3);
@@ -50,7 +51,7 @@ function playRound(e) {
   }
 
     if (playerScore === 5 || computerScore === 5) {
-    winner = getGameWinner();
+    winner = checkGameWinner();
     gameWinnerOut.textContent = winner;
     resetGameButton.style.display = "block";
   }
@@ -67,10 +68,7 @@ function checkRoundWinner (playerSelection, computerSelection) {
           roundWinner = "player";
         } else if (playerSelection === "paper" && computerSelection === "rock") {
           roundWinner = "player";
-        } else if (
-          playerSelection === "scissors" &&
-          computerSelection === "paper"
-        ) {
+        } else if (playerSelection === "scissors" && computerSelection === "paper") {
           roundWinner = "player";
         } else {
           roundWinner = "computer";
@@ -89,7 +87,7 @@ function updateScore(roundWinner) {
     computerScoreOut.textContent = computerScore;
 }
 
-function getGameWinner() {
+function checkGameWinner() {
     if (playerScore === 5) return "player";
     return "computer";
 }
