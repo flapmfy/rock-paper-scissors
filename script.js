@@ -18,15 +18,6 @@ let computerScore = 0;
 console.log(getComputerChoice())
 function getComputerChoice() {
   let choiceInt = Math.floor(Math.random() * 3);
-  // let choiceString = "";
-
-  // if (choiceInt === 0) {
-  //   choiceString = "rock";
-  // } else if (choiceInt === 1) {
-  //   choiceString = "paper";
-  // } else if (choiceInt === 2) {
-  //   choiceString = "scissors";
-  // }
 
   return choiceInt;
 }
@@ -63,10 +54,10 @@ function playRound(playerSelection, computerSelection) {
   } 
   
   if (playerScore === 5) {
-    gameWinnerOut.textContent = "Player";
+    gameWinnerOut.textContent = "GAME WINNER: Player";
     resetGameButton.style.display = "block";
   } else if (computerScore === 5) {
-    gameWinnerOut.textContent = "Computer";
+    gameWinnerOut.textContent = "GAME WINNER: Computer";
     resetGameButton.style.display = "block";
   }
 }
