@@ -6,14 +6,13 @@ const gameWinnerOut = document.querySelector(".js-winner");
 const resetGameButton = document.querySelector(".js-reset");
 const playerEmoji = document.querySelector(".player-emoji");
 const computerEmoji = document.querySelector(".computer-emoji");
+let playerScore = 0;
+let computerScore = 0;
 
 resetGameButton.addEventListener('click', resetGame);
 
 const buttons = document.querySelectorAll(".choice");
 buttons.forEach((button) => button.addEventListener("click", getPlayerChoice));
-
-let playerScore = 0;
-let computerScore = 0;
 
 console.log(getComputerChoice())
 function getComputerChoice() {
@@ -66,8 +65,6 @@ function checkRoundWinner (playerSelection, computerSelection) {
     let currentChoices = `${playerSelection}-${computerSelection}`;
     let roundWinner = "";
 
-    console.log(currentChoices);
-
     if (playerSelection === computerSelection) {
         roundWinner = "draw";
       } else if (playerWinCondition.includes(currentChoices)) {
@@ -75,8 +72,6 @@ function checkRoundWinner (playerSelection, computerSelection) {
       } else {
         roundWinner = "computer";
       }
-
-      console.log(roundWinner);
 
       updateScore(roundWinner);
 }
