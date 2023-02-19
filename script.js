@@ -33,6 +33,7 @@ function getComputerChoice() {
 }
 
 function choiceToNumber(choiceString) {
+  choiceString = choiceString.toLowerCase();
   let choiceInt = -1;
 
   if (choiceString === "rock") {
@@ -48,7 +49,7 @@ function choiceToNumber(choiceString) {
 
 function getPlayerChoice(e) {
   let playerChoice = e.currentTarget.lastElementChild.textContent;
-  playRound(playerChoice.toLowerCase(), getComputerChoice());
+  playRound(choiceToNumber(playerChoice), getComputerChoice());
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -59,36 +60,37 @@ function playRound(playerSelection, computerSelection) {
   drawChoice(computerSelection, computerEmoji);
 
   if (playerScore !== 5 && computerScore !== 5) {
-    roundWinner = checkRoundWinner(playerSelection, computerSelection);
-    roundWinnerOut.textContent = roundWinner;
-  } else if (playerScore === 5) {
+    checkRoundWinner(playerSelection, computerSelection);
+  } 
+  
+  if (playerScore === 5) {
     gameWinnerOut.textContent = "Player";
     resetGameButton.style.display = "block";
-  } else {
+  } else if (computerScore === 5) {
     gameWinnerOut.textContent = "Computer";
     resetGameButton.style.display = "block";
   }
 }
 
 function checkRoundWinner (playerSelection, computerSelection) {
+    const playerWinCondition = ["0-2", "1-0", "2-1"];
+    let currentChoices = `${playerSelection}-${computerSelection}`;
     let roundWinner = "";
+
+    console.log(currentChoices);
 
     if (playerSelection === computerSelection) {
         roundWinner = "draw";
+      } else if (playerWinCondition.includes(currentChoices)) {
+        roundWinner = "player";
       } else {
-        if (playerSelection === "rock" && computerSelection === "scissors") {
-          roundWinner = "player";
-        } else if (playerSelection === "paper" && computerSelection === "rock") {
-          roundWinner = "player";
-        } else if (playerSelection === "scissors" && computerSelection === "paper") {
-          roundWinner = "player";
-        } else {
-          roundWinner = "computer";
-        }
+        roundWinner = "computer";
       }
-      updateScore(roundWinner);
 
-      return roundWinner;
+      console.log(roundWinner);
+
+      updateScore(roundWinner);
+      roundWinnerOut.textContent = roundWinner;
 }
 
 function updateScore(roundWinner) {
